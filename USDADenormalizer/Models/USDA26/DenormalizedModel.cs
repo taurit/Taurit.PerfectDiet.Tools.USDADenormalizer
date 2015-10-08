@@ -22,6 +22,12 @@ namespace USDADenormalizer.Models.USDA26
         /// Flat representation of food items information in database
         /// </summary>
         public IList<DenormalizedItem> FoodItems = new List<DenormalizedItem>();
+        private decimal? to2TNotFurtherDefined_Grams;
+        private decimal? to2i_Grams;
+        private decimal? to3i_Grams;
+        private decimal? i_Grams;
+
+        public decimal? TNotFurtherDefined_Grams { get; private set; }
 
         /// <summary>
         /// This function builds flat model for food item with arbitrarily-chosen set of data. 
@@ -151,8 +157,57 @@ namespace USDADenormalizer.Models.USDA26
                 flatItem.F14D0_Grams = TryGetDecimal(nutrDictionaries[612], foodId);
                 flatItem.F16D0_Grams = TryGetDecimal(nutrDictionaries[613], foodId);
                 flatItem.F18D0_Grams = TryGetDecimal(nutrDictionaries[614], foodId);
-                //...
-
+                flatItem.F20D0_Grams = TryGetDecimal(nutrDictionaries[615], foodId);
+                flatItem.F18D1_Grams = TryGetDecimal(nutrDictionaries[617], foodId);
+                flatItem.F18D2_Grams = TryGetDecimal(nutrDictionaries[618], foodId);
+                flatItem.F18D3_Grams = TryGetDecimal(nutrDictionaries[619], foodId);
+                flatItem.F20D4_Grams = TryGetDecimal(nutrDictionaries[620], foodId);
+                flatItem.F22D6_Grams = TryGetDecimal(nutrDictionaries[621], foodId);
+                flatItem.F22D0_Grams = TryGetDecimal(nutrDictionaries[624], foodId);
+                flatItem.F14D1_Grams = TryGetDecimal(nutrDictionaries[625], foodId);
+                flatItem.F16D1_Grams = TryGetDecimal(nutrDictionaries[626], foodId);
+                flatItem.F18D4_Grams = TryGetDecimal(nutrDictionaries[627], foodId);
+                flatItem.F20D1_Grams = TryGetDecimal(nutrDictionaries[628], foodId);
+                flatItem.F20D5_Grams = TryGetDecimal(nutrDictionaries[629], foodId);
+                flatItem.F22D1_Grams = TryGetDecimal(nutrDictionaries[630], foodId);
+                flatItem.F22D5_Grams = TryGetDecimal(nutrDictionaries[631], foodId);
+                flatItem.Phytosterols_Mg = TryGetDecimal(nutrDictionaries[636], foodId);
+                flatItem.Stigmasterol_Mg = TryGetDecimal(nutrDictionaries[638], foodId);
+                flatItem.Campesterol_Mg = TryGetDecimal(nutrDictionaries[639], foodId);
+                flatItem.BetaSitosterol_Mg = TryGetDecimal(nutrDictionaries[641], foodId);
+                flatItem.FattyAcidsTotalMonounsaturated_Grams = TryGetDecimal(nutrDictionaries[645], foodId);
+                flatItem.FattyAcidsTotalPolyunsaturated_Grams = TryGetDecimal(nutrDictionaries[646], foodId);
+                flatItem.F15D0_Grams = TryGetDecimal(nutrDictionaries[652], foodId);
+                flatItem.F17D0_Grams = TryGetDecimal(nutrDictionaries[653], foodId);
+                flatItem.F24D0_Grams = TryGetDecimal(nutrDictionaries[654], foodId);
+                flatItem.F16D1T_Grams = TryGetDecimal(nutrDictionaries[662], foodId);
+                flatItem.F18D1T_Grams = TryGetDecimal(nutrDictionaries[663], foodId);
+                flatItem.F22D1T_Grams = TryGetDecimal(nutrDictionaries[664], foodId);
+                flatItem.T18to2NotFurtherDefined_Grams = TryGetDecimal(nutrDictionaries[665], foodId);
+                flatItem.I18to2_Grams = TryGetDecimal(nutrDictionaries[666], foodId);
+                flatItem.F18D2TT_Grams = TryGetDecimal(nutrDictionaries[669], foodId);
+                flatItem.F18D2CLA_Grams = TryGetDecimal(nutrDictionaries[670], foodId);
+                flatItem.F24D1C_Grams = TryGetDecimal(nutrDictionaries[671], foodId);
+                flatItem.F20D2CN6_Grams = TryGetDecimal(nutrDictionaries[672], foodId);
+                flatItem.F16D1C_Grams = TryGetDecimal(nutrDictionaries[673], foodId);
+                flatItem.F18D1C_Grams = TryGetDecimal(nutrDictionaries[674], foodId);
+                flatItem.F18D2CN6_Grams = TryGetDecimal(nutrDictionaries[675], foodId);
+                flatItem.F22D1C_Grams = TryGetDecimal(nutrDictionaries[676], foodId);
+                flatItem.F18D3CN6_Grams = TryGetDecimal(nutrDictionaries[685], foodId);
+                flatItem.F17D1_Grams = TryGetDecimal(nutrDictionaries[687], foodId);
+                flatItem.F20D3_Grams = TryGetDecimal(nutrDictionaries[689], foodId);
+                flatItem.FATRNM_Grams = TryGetDecimal(nutrDictionaries[693], foodId);
+                flatItem.FATRNP_Grams = TryGetDecimal(nutrDictionaries[695], foodId);
+                flatItem.F13D0_Grams = TryGetDecimal(nutrDictionaries[696], foodId);
+                flatItem.F15D1_Grams = TryGetDecimal(nutrDictionaries[697], foodId);
+                flatItem.F18D3CN3_Grams = TryGetDecimal(nutrDictionaries[851], foodId);
+                flatItem.F20D3N3_Grams = TryGetDecimal(nutrDictionaries[852], foodId);
+                flatItem.F20D3N6_Grams = TryGetDecimal(nutrDictionaries[853], foodId);
+                flatItem.F20D4N6_Grams = TryGetDecimal(nutrDictionaries[855], foodId);
+                flatItem.I18to3_Grams = TryGetDecimal(nutrDictionaries[856], foodId);
+                flatItem.F21D5_Grams = TryGetDecimal(nutrDictionaries[857], foodId);
+                flatItem.F22D4_Grams = TryGetDecimal(nutrDictionaries[858], foodId);
+                flatItem.F18D1TN7_Grams = TryGetDecimal(nutrDictionaries[859], foodId);
 
                 this.FoodItems.Add(flatItem);
             }

@@ -226,5 +226,56 @@ namespace USDADenormalizer.Models.USDA26
         public decimal? F14D0_Grams { get; internal set; }
         public decimal? F16D0_Grams { get; internal set; }
         public decimal? F18D0_Grams { get; internal set; }
+        public decimal? F20D0_Grams { get; internal set; }
+        public decimal? F18D1_Grams { get; internal set; }
+        public decimal? F18D2_Grams { get; internal set; }
+        public decimal? F18D3_Grams { get; internal set; }
+        public decimal? F20D4_Grams { get; internal set; }
+        public decimal? F22D6_Grams { get; internal set; }
+        public decimal? F22D0_Grams { get; internal set; }
+        public decimal? F14D1_Grams { get; internal set; }
+        public decimal? F16D1_Grams { get; internal set; }
+        public decimal? F18D4_Grams { get; internal set; }
+        public decimal? F20D1_Grams { get; internal set; }
+        public decimal? F20D5_Grams { get; internal set; }
+        public decimal? F22D1_Grams { get; internal set; }
+        public decimal? F22D5_Grams { get; internal set; }
+        public decimal? Phytosterols_Mg { get; internal set; }
+        public decimal? Stigmasterol_Mg { get; internal set; }
+        public decimal? Campesterol_Mg { get; internal set; }
+        public decimal? BetaSitosterol_Mg { get; internal set; }
+        public decimal? FattyAcidsTotalMonounsaturated_Grams { get; internal set; }
+        public decimal? FattyAcidsTotalPolyunsaturated_Grams { get; internal set; }
+        public decimal? F15D0_Grams { get; internal set; }
+        public decimal? F17D0_Grams { get; internal set; }
+        public decimal? F24D0_Grams { get; internal set; }
+        public decimal? F16D1T_Grams { get; internal set; }
+        public decimal? F18D1T_Grams { get; internal set; }
+        public decimal? F22D1T_Grams { get; internal set; }
+        public decimal? F18D2TT_Grams { get; internal set; }
+        public decimal? F18D2CLA_Grams { get; internal set; }
+        public decimal? F24D1C_Grams { get; internal set; }
+        public decimal? F20D2CN6_Grams { get; internal set; }
+        public decimal? F16D1C_Grams { get; internal set; }
+        public decimal? F18D1C_Grams { get; internal set; }
+        public decimal? F18D2CN6_Grams { get; internal set; }
+        public decimal? F22D1C_Grams { get; internal set; }
+        public decimal? F18D3CN6_Grams { get; internal set; }
+        public decimal? F17D1_Grams { get; internal set; }
+        public decimal? F20D3_Grams { get; internal set; }
+        public decimal? FATRNM_Grams { get; internal set; }
+        public decimal? FATRNP_Grams { get; internal set; }
+        public decimal? F13D0_Grams { get; internal set; }
+        public decimal? F15D1_Grams { get; internal set; }
+        public decimal? F18D3CN3_Grams { get; internal set; }
+        public decimal? F20D3N3_Grams { get; internal set; }
+        public decimal? F20D3N6_Grams { get; internal set; }
+        public decimal? F20D4N6_Grams { get; internal set; }
+        public decimal? F21D5_Grams { get; internal set; }
+        public decimal? F22D4_Grams { get; internal set; }
+        public decimal? F18D1TN7_Grams { get; internal set; }
+        public decimal? I18to2_Grams { get; internal set; }
+        public decimal? T18to2NotFurtherDefined_Grams { get; internal set; }
+        public decimal? I18to3_Grams { get; internal set; }
     }
 }
