@@ -71,27 +71,27 @@ namespace USDADenormalizer.Models.USDA26
         /// <summary>
         /// Energy in Kcal, comes from Nutrient definition->Nutrient data
         /// </summary>
-        public decimal? EnergyKcal { get; set; }
+        public decimal? Energy_Kcal { get; set; }
 
         /// <summary>
         /// Proteins in g/100g, comes from Nutrient definition->Nutrient data
         /// </summary>
-        public decimal? ProteinGrams { get; set; }
+        public decimal? Protein_Grams { get; set; }
 
         /// <summary>
         /// Fat in g/100g, comes from Nutrient definition->Nutrient data
         /// </summary>
-        public decimal? FatGrams { get; set; }
+        public decimal? Fat_Grams { get; set; }
 
         /// <summary>
         /// Carbohydrates in g/100g, comes from Nutrient definition->Nutrient data
         /// </summary>
-        public decimal? CarbohydrateGrams { get; set; }
+        public decimal? Carbohydrate_Grams { get; set; }
 
         /// <summary>
         /// Ash in g/100g, comes from Nutrient definition->Nutrient data
         /// </summary>
-        public decimal? AshGrams { get; set; }
+        public decimal? Ash_Grams { get; set; }
 
         /// <summary>
         /// Comes from FdGrpDesc in FoodGroupDescription
@@ -132,7 +132,99 @@ namespace USDADenormalizer.Models.USDA26
         /// Comes from CHOFactor in FoodDescription
         /// </summary>
         public decimal? CarbohydratesToCaloriesFactor { get; set; }
-        
-    
+        public decimal? Starch_Grams { get; internal set; }
+        public decimal? Sucrose_Grams { get; internal set; }
+        public decimal? Glucose_Grams { get; internal set; }
+        public decimal? Fructose_Grams { get; internal set; }
+        public decimal? Lactose_Grams { get; internal set; }
+        public decimal? Maltose_Grams { get; internal set; }
+        public decimal? AlcoholEthyl_Grams { get; internal set; }
+        public decimal? Water_Grams { get; internal set; }
+        public decimal? AdjustedProtein_Grams { get; internal set; }
+        public decimal? Caffeine_Mg { get; internal set; }
+        public decimal? Theoboromine_Mg { get; internal set; }
+        public decimal? Energy_KJ { get; internal set; }
+        public decimal? Sugar_Grams { get; internal set; }
+        public decimal? Galactose_Grams { get; internal set; }
+        public decimal? FiberTotalDietary_Grams { get; internal set; }
+        public decimal? Calcium_Mg { get; internal set; }
+        public decimal? Iron_Mg { get; internal set; }
+        public decimal? Magnesium_Mg { get; internal set; }
+        public decimal? Phosphorus_Mg { get; internal set; }
+        public decimal? Potassium_Mg { get; internal set; }
+        public decimal? Sodium_Mg { get; internal set; }
+        public decimal? Zinc_Mg { get; internal set; }
+        public decimal? Copper_Mg { get; internal set; }
+        public decimal? Fluorite_Ug { get; internal set; }
+        public decimal? Manganese_Mg { get; internal set; }
+        public decimal? Selenium_Ug { get; internal set; }
+        public decimal? VitaminA_IU { get; internal set; }
+        public decimal? Retinol_Ug { get; internal set; }
+        public decimal? VitaminA_RAE { get; internal set; }
+        public decimal? CaroteneBeta_Ug { get; internal set; }
+        public decimal? CaroteneAlpha_Ug { get; internal set; }
+        public decimal? VitaminE_Mg { get; internal set; }
+        public decimal? VitaminD_IU { get; internal set; }
+        public decimal? VitaminD2_Ug { get; internal set; }
+        public decimal? VitaminD3_Ug { get; internal set; }
+        public decimal? VitaminD2D2Sum_Ug { get; internal set; }
+        public decimal? Cryptoxanthin_Ug { get; internal set; }
+        public decimal? Lycopene_Ug { get; internal set; }
+        public decimal? LuteinAndZeaxanthin_Ug { get; internal set; }
+        public decimal? TocopherolBeta_Mg { get; internal set; }
+        public decimal? TocopherolGamma_Mg { get; internal set; }
+        public decimal? TocopherolDelta_Mg { get; internal set; }
+        public decimal? TocotrienolAlpha_Mg { get; internal set; }
+        public decimal? TocotrienolBeta_Mg { get; internal set; }
+        public decimal? TocotrienolGamma_Mg { get; internal set; }
+        public decimal? TocotrienolDelta_Mg { get; internal set; }
+        public decimal? VitaminC_Mg { get; internal set; }
+        public decimal? Thiamin_Mg { get; internal set; }
+        public decimal? Riboflavin_Mg { get; internal set; }
+        public decimal? Niacin_Mg { get; internal set; }
+        public decimal? PantothenicAcid_Mg { get; internal set; }
+        public decimal? VitaminB6A_Mg { get; internal set; }
+        public decimal? FoliateTotal_Ug { get; internal set; }
+        public decimal? VitaminB12_Mg { get; internal set; }
+        public decimal? CholineTotalMg { get; internal set; }
+        public decimal? Menaquinone4_Ug { get; internal set; }
+        public decimal? Dihydrophylloquinone_Ug { get; internal set; }
+        public decimal? VitaminK_Ug { get; internal set; }
+        public decimal? FolicAcid_Ug { get; internal set; }
+        public decimal? FolateFood_Ug { get; internal set; }
+        public decimal? FolateDFE_Ug { get; internal set; }
+        public decimal? Betaine_Mg { get; internal set; }
+        public decimal? Tryptophan_Grams { get; internal set; }
+        public decimal? Threonine_Grams { get; internal set; }
+        public decimal? Isoleucine_Grams { get; internal set; }
+        public decimal? Leucine_Grams { get; internal set; }
+        public decimal? Lysine_Grams { get; internal set; }
+        public decimal? Methionine_Grams { get; internal set; }
+        public decimal? Cystine_Grams { get; internal set; }
+        public decimal? Phenylalanine_Grams { get; internal set; }
+        public decimal? Tyrosine_Grams { get; internal set; }
+        public decimal? Valine_Grams { get; internal set; }
+        public decimal? Arginine_Grams { get; internal set; }
+        public decimal? Histidine_Grams { get; internal set; }
+        public decimal? Alanine_Grams { get; internal set; }
+        public decimal? AsparticAcid_Grams { get; internal set; }
+        public decimal? GlutamicAcid_Grams { get; internal set; }
+        public decimal? Glycine_Grams { get; internal set; }
+        public decimal? Proline_Grams { get; internal set; }
+        public decimal? Serine_Grams { get; internal set; }
+        public decimal? Hydroxyproline_Grams { get; internal set; }
+        public decimal? VitaminEAdded_Mg { get; internal set; }
+        public decimal? VitaminB12Added_Mg { get; internal set; }
+        public decimal? Cholesterol_Mg { get; internal set; }
+        public decimal? FattyAcidsTotalTrans_Grams { get; internal set; }
+        public decimal? FattyAcidsTotalSaturated_Grams { get; internal set; }
+        public decimal? F4D0_Grams { get; internal set; }
+        public decimal? F6D0_Grams { get; internal set; }
+        public decimal? F8D0_Grams { get; internal set; }
+        public decimal? F10D0_Grams { get; internal set; }
+        public decimal? F12D0_Grams { get; internal set; }
+        public decimal? F14D0_Grams { get; internal set; }
+        public decimal? F16D0_Grams { get; internal set; }
+        public decimal? F18D0_Grams { get; internal set; }
     }
 }

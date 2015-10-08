@@ -1,3 +1,5 @@
 USDAExport/obj/
 USDAExport/bin/
 USDADenormalizer/obj/
+.vs/
+USDADenormalizer/bin/
