@@ -7,6 +7,8 @@ The USDA National Nutrient Database for SR is the major source of food compositi
 
 This project aims at reading the database data in a format that it's published by the USDA, and transforming it in a way that the **most important data about food items is stored in a single table**. Also, the naming of the columns in that table is simple and descriptive whenever possible.
 
+![Result of transformation: a single table](https://github.com/taurit/USDADenormalizer/blob/master/Database/screenshot-after-export.png)
+
 In database world this process is called denormalization. In this case, the reason for doing this is to make it easier for people who want to experiment with the nutrient data to start. With a single table, there's no need to install database management system (like Microsoft Access) and write or design queries. Instead, you can just open *.csv* file in Excel or other tools for data analysis and start experimenting.
 
 In original database, there are 12 tables, and there are 136 pages of documentation to understand how entities are connected and what data it contains. Reading it will certainly make you better understand this data, how the studies were conducted, and to what degree can you trust given informations. But it's for you to choose now which approach is more suitable for the problem you are going to solve.
