@@ -21,7 +21,7 @@ namespace USDAExport
         /// </summary>
         /// <param name="args">
         /// [0] path to the directory containing ASCII version of database
-        /// [2] path to the output CSV file
+        /// [1] path to the output CSV file
         /// </param>
         static void Main(string[] args)
         {
