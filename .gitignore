@@ -3,3 +3,6 @@ USDAExport/bin/
 USDADenormalizer/obj/
 .vs/
 USDADenormalizer/bin/
+*.user
+packages/
+USDADenormalizer/project.lock.json

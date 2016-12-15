@@ -27,7 +27,7 @@ USDAExport project is a Windows console application that expects two command-lin
 1. Full path to the directory containing ASCII version of database in a filesystem
 2. Path to the output CSV file
 
-You can open the solution in Visual Studio 2015, build the library and the console program, and then run the program to perform the transformation. Example:
+You can open the solution in Visual Studio 2017, build the library and the console program, and then run the program to perform the transformation. Example:
 
     d:\food>USDAExport.exe d:\food\sr26-ascii-version\ products.csv
 
