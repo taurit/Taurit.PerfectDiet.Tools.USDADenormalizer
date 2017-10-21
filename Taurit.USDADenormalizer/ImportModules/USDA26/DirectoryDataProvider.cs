@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsvHelper.Configuration;
 using USDADenormalizer.Models.USDA26;
 
 namespace USDADenormalizer.ImportModules
@@ -58,7 +59,7 @@ namespace USDADenormalizer.ImportModules
             List<T> entries = new List<T>();
             using (TextReader reader = this.FileReader.OpenTextReader(fileName))
             {
-                var csv = new CsvReader(reader, new CsvHelper.Configuration.CsvConfiguration()
+                var csv = new CsvReader(reader, new Configuration()
                 {
                     Delimiter = "^",
                     Quote = '~',
