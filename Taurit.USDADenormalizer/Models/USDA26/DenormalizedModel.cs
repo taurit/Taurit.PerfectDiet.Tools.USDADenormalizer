@@ -22,11 +22,6 @@ namespace USDADenormalizer.Models.USDA26
         /// </summary>
         public IList<DenormalizedItem> FoodItems = new List<DenormalizedItem>();
 
-        private decimal? i_Grams;
-        private decimal? to2i_Grams;
-        private decimal? to2TNotFurtherDefined_Grams;
-        private decimal? to3i_Grams;
-
         /// <summary>
         ///     This function builds flat model for food item with arbitrarily-chosen set of data.
         ///     It indends to cover most important values for each food item, but it does not guarantee that all
