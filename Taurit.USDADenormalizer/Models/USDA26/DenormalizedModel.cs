@@ -1,38 +1,36 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
+using Taurit.USDADenormalizer.Models.USDA26;
 
 namespace USDADenormalizer.Models.USDA26
 {
     /// <summary>
-    /// Stores combined data from few USDA tables, containing denormalized information about nutrients in foods.
-    /// Performs all the logic that is necessary to construct flat table model of the data based on originar database structure.
+    ///     Stores combined data from few USDA tables, containing denormalized information about nutrients in foods.
+    ///     Performs all the logic that is necessary to construct flat table model of the data based on originar database
+    ///     structure.
     /// </summary>
     public class DenormalizedModel
     {
         /// <summary>
-        /// Reference to original USDA Nutrient database model, with entity and property names as in documentation
+        ///     Reference to original USDA Nutrient database model, with entity and property names as in documentation
         /// </summary>
         private DatabaseRepresentation dbModel;
 
         /// <summary>
-        /// Flat representation of food items information in database
+        ///     Flat representation of food items information in database
         /// </summary>
         public IList<DenormalizedItem> FoodItems = new List<DenormalizedItem>();
-        private decimal? to2TNotFurtherDefined_Grams;
-        private decimal? to2i_Grams;
-        private decimal? to3i_Grams;
-        private decimal? i_Grams;
 
-        public decimal? TNotFurtherDefined_Grams { get; private set; }
+        private decimal? i_Grams;
+        private decimal? to2i_Grams;
+        private decimal? to2TNotFurtherDefined_Grams;
+        private decimal? to3i_Grams;
 
         /// <summary>
-        /// This function builds flat model for food item with arbitrarily-chosen set of data. 
-        /// It indends to cover most important values for each food item, but it does not guarantee that all
-        /// associated data will be represented in this model.
+        ///     This function builds flat model for food item with arbitrarily-chosen set of data.
+        ///     It indends to cover most important values for each food item, but it does not guarantee that all
+        ///     associated data will be represented in this model.
         /// </summary>
         /// <param name="dbModel"></param>
         public DenormalizedModel(DatabaseRepresentation dbModel)
@@ -40,24 +38,24 @@ namespace USDADenormalizer.Models.USDA26
             this.dbModel = dbModel;
 
             // Dictionaries for interesting nutrients (for performance)
-            Dictionary<int, Dictionary<int, string>> nutrDictionaries = GetNutrientDictionaries(
+            var nutrDictionaries = GetNutrientDictionaries(
                 dbModel);
 
             // Food group dictionary (for performance)
-            Dictionary<int, string> foodGrpIdToName = dbModel.foodGroupDescription.ToDictionary(g => g.FdGrpCd, g => g.FdGrpDesc);
+            var foodGrpIdToName = dbModel.foodGroupDescription.ToDictionary(g => g.FdGrpCd, g => g.FdGrpDesc);
 
             // From FoodDescription
-            foreach (FoodDescription foodItm in dbModel.foodDescription/*.Take(5)*/) // Take() for fast debugging
+            foreach (var foodItm in dbModel.foodDescription /*.Take(5)*/) // Take() for fast debugging
             {
                 // Fill basic values about food item from FOodDescription entity
-                DenormalizedItem flatItem = new DenormalizedItem(foodItm);
+                var flatItem = new DenormalizedItem(foodItm);
 
                 // Fill food group details from FoodGroup entity
                 flatItem.FoodGroupName = foodGrpIdToName[foodItm.FoodGroup];
 
                 // Find nutrient values
                 // In this place data fron NUTR_DEF entity that has a generic structure in DB is placed in strongly-typed fields of DenormalizedItem, thus necessity to use nutrient identifiers in the code
-                int foodId = foodItm.NutrientDatabankNumber;
+                var foodId = foodItm.NutrientDatabankNumber;
                 flatItem.Protein_Grams = TryGetDecimal(nutrDictionaries[203], foodId);
                 flatItem.Fat_Grams = TryGetDecimal(nutrDictionaries[204], foodId);
                 flatItem.Carbohydrate_Grams = TryGetDecimal(nutrDictionaries[205], foodId);
@@ -209,13 +207,16 @@ namespace USDADenormalizer.Models.USDA26
                 flatItem.F22D4_Grams = TryGetDecimal(nutrDictionaries[858], foodId);
                 flatItem.F18D1TN7_Grams = TryGetDecimal(nutrDictionaries[859], foodId);
 
-                this.FoodItems.Add(flatItem);
+                FoodItems.Add(flatItem);
             }
         }
 
+        public decimal? TNotFurtherDefined_Grams { get; private set; }
+
         /// <summary>
-        /// Builds a dictionary of dictionaries for all types of nutrients found in NutrientDefinition table.
-        /// This is done purely for performance reasons, as looking up in dicrtionaries for each product is faster than repeating linq queries.
+        ///     Builds a dictionary of dictionaries for all types of nutrients found in NutrientDefinition table.
+        ///     This is done purely for performance reasons, as looking up in dicrtionaries for each product is faster than
+        ///     repeating linq queries.
         /// </summary>
         /// <param name="dbModel"></param>
         /// <returns></returns>
@@ -235,7 +236,7 @@ namespace USDADenormalizer.Models.USDA26
 
 
         /// <summary>
-        /// Returns dictionary mapping Food item (from Food description entity) to desired nutrient's value
+        ///     Returns dictionary mapping Food item (from Food description entity) to desired nutrient's value
         /// </summary>
         /// <param name="dbModel">Initialized USDA26 database model</param>
         /// <param name="nutrNo">ID of nutrient which value should be put as dictionary values</param>
@@ -243,19 +244,18 @@ namespace USDADenormalizer.Models.USDA26
         private Dictionary<int, string> GetNutrientDict(DatabaseRepresentation dbModel, int nutrNo)
         {
             // Get the numeric identifier for a given nutrient
-            int nutrientNumber = dbModel.nutrientDefinition.Where(nd => nd.NutrNo == nutrNo).FirstOrDefault().NutrNo;
+            var nutrientNumber = dbModel.nutrientDefinition.Where(nd => nd.NutrNo == nutrNo).FirstOrDefault().NutrNo;
 
             // Build a dictionary
-            Dictionary<int, string> nutrientNDBNoToValue = dbModel.nutrientData
-               .Where(nut => nut.NutrNo == nutrientNumber)
-               .ToDictionary(x => x.NDBNo, x => x.NutrVal);
+            var nutrientNDBNoToValue = dbModel.nutrientData
+                .Where(nut => nut.NutrNo == nutrientNumber)
+                .ToDictionary(x => x.NDBNo, x => x.NutrVal);
 
             return nutrientNDBNoToValue;
-
         }
 
         /// <summary>
-        /// Attempts to get a value from a dictionary and parse is as decimal.
+        ///     Attempts to get a value from a dictionary and parse is as decimal.
         /// </summary>
         /// <typeparam name="T1">Dictionary key type</typeparam>
         /// <param name="dict">Dictionary to search value for</param>
@@ -263,15 +263,13 @@ namespace USDADenormalizer.Models.USDA26
         /// <returns>Parsed decimal or null in case of no success</returns>
         private decimal? TryGetDecimal<T1>(Dictionary<T1, string> dict, T1 key)
         {
-            string dictValue;
-            if (!dict.TryGetValue(key, out dictValue)) return null;
+            if (!dict.TryGetValue(key, out var dictValue)) return null;
             if (dictValue == null) return null;
 
-            decimal dictValDecimal;
-            if (!Decimal.TryParse(dictValue,
+            if (!decimal.TryParse(dictValue,
                 NumberStyles.Any,
                 CultureInfo.InvariantCulture,
-                out dictValDecimal))
+                out var dictValDecimal))
                 return null;
 
             return dictValDecimal;

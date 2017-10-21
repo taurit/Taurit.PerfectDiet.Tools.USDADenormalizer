@@ -1,47 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using USDADenormalizer.ImportModules;
+﻿using System.Collections.Generic;
+using Taurit.USDADenormalizer.ImportModules.USDA26;
 
-namespace USDADenormalizer.Models.USDA26
+namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
-    /// Main file that represents database in revision #26
-    /// It's a direct mapping of provided database files (in CSV format) to CLR objects, which 
-    /// keeps the original names and data types based on documentation.
+    ///     Main file that represents database in revision #26
+    ///     It's a direct mapping of provided database files (in CSV format) to CLR objects, which
+    ///     keeps the original names and data types based on documentation.
     /// </summary>
     public class DatabaseRepresentation
     {
+        internal List<DataDerivation> dataDerivation;
+        internal List<FoodDescription> foodDescription;
+        internal List<FoodGroupDescription> foodGroupDescription;
+        internal List<Footnote> footnote;
+        internal List<LangualFactor> langualFactor;
+        internal List<LangualFactorsDescription> langualFactorsDescription;
+        internal List<NutrientData> nutrientData;
+        internal List<NutrientDefinition> nutrientDefinition;
+        internal List<SourceCode> sourceCode;
+        internal List<SourcesOfData> sourcesOfData;
+        internal List<SourcesOfDataLink> sourcesOfDataLink;
+        internal List<Weight> weight;
+
         public DatabaseRepresentation(IUsdaDataProvider dataProvider)
         {
-            this.dataDerivation = dataProvider.GetDataDerivation();
-            this.foodDescription = dataProvider.GetFoodDescription();
-            this.foodGroupDescription = dataProvider.GetFoodGroupDescription();
-            this.footnote = dataProvider.GetFootnote();
-            this.langualFactor = dataProvider.GetLangualFactor();
-            this.langualFactorsDescription = dataProvider.GetLangualFactorsDescription();
-            this.nutrientData = dataProvider.GetNutrientData();
-            this.nutrientDefinition = dataProvider.GetNutrientDefinition();
-            this.sourceCode = dataProvider.GetSourceCode();
-            this.sourcesOfData = dataProvider.GetSourcesOfData();
-            this.sourcesOfDataLink = dataProvider.GetSourcesOfDataLink();
-            this.weight = dataProvider.GetWeight();
+            dataDerivation = dataProvider.GetDataDerivation();
+            foodDescription = dataProvider.GetFoodDescription();
+            foodGroupDescription = dataProvider.GetFoodGroupDescription();
+            footnote = dataProvider.GetFootnote();
+            langualFactor = dataProvider.GetLangualFactor();
+            langualFactorsDescription = dataProvider.GetLangualFactorsDescription();
+            nutrientData = dataProvider.GetNutrientData();
+            nutrientDefinition = dataProvider.GetNutrientDefinition();
+            sourceCode = dataProvider.GetSourceCode();
+            sourcesOfData = dataProvider.GetSourcesOfData();
+            sourcesOfDataLink = dataProvider.GetSourcesOfDataLink();
+            weight = dataProvider.GetWeight();
         }
-
-        internal List<DataDerivation> dataDerivation = null;
-        internal List<FoodDescription> foodDescription = null;
-        internal List<FoodGroupDescription> foodGroupDescription = null;
-        internal List<Footnote> footnote = null;
-        internal List<LangualFactor> langualFactor = null;
-        internal List<LangualFactorsDescription> langualFactorsDescription = null;
-        internal List<NutrientData> nutrientData = null;
-        internal List<NutrientDefinition> nutrientDefinition = null;
-        internal List<SourceCode> sourceCode = null;
-        internal List<SourcesOfData> sourcesOfData = null;
-        internal List<SourcesOfDataLink> sourcesOfDataLink = null;
-        internal List<Weight> weight = null;
-
     }
 }
