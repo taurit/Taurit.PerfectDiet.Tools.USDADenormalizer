@@ -1,13 +1,7 @@
-﻿using CsvHelper;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using USDADenormalizer.Models.USDA26;
 
-namespace USDADenormalizer.ImportModules
+namespace Taurit.USDADenormalizer.ImportModules.USDA26
 {
     /// <summary>
     /// As of 2015, database is provided in two formats:

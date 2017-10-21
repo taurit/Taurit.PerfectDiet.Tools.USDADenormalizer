@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
-namespace USDADenormalizer.ImportModules
+namespace Taurit.USDADenormalizer.ImportModules
 {
     /// <summary>
     /// This interface allows to delegate basic IO operations to the calling process.

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace USDADenormalizer.Models.USDA26
+﻿namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     /// LanguaL Factor File (File name = LANGUAL). This file (Table 6) is a support file to the Food Description

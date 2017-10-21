@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using USDADenormalizer.Models.USDA26;
 
-namespace USDADenormalizer.Models.USDA26
+namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     /// A model of food item.

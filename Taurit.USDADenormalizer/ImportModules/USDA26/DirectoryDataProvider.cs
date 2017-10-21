@@ -1,14 +1,13 @@
-﻿using CsvHelper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CsvHelper;
 using CsvHelper.Configuration;
+using USDADenormalizer.ImportModules;
 using USDADenormalizer.Models.USDA26;
 
-namespace USDADenormalizer.ImportModules
+namespace Taurit.USDADenormalizer.ImportModules.USDA26
 {
     /// <summary>
     /// Reads original database's data from one of the formats it's distributed in (directory containing CSV files)

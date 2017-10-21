@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace USDADenormalizer.Models.USDA26
+﻿namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     /// Weight File (file name = WEIGHT). This file (Table 12) contains the weight in grams of a number of

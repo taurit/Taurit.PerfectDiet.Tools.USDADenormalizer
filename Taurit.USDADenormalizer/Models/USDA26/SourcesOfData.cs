@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace USDADenormalizer.Models.USDA26
+﻿namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     /// Sources of Data File (file name = DATA_SRC). This file (Table 15) provides a citation to the DataSrc_ID

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace USDADenormalizer.Models.USDA26
+﻿namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     /// Nutrient Data File (file name = NUT_DATA). This file (Table 8) contains the nutrient values and

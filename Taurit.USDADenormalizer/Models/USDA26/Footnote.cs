@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace USDADenormalizer.Models.USDA26
+﻿namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     /// Footnote File (file name = FOOTNOTE). This file (Table 13) contains additional information
