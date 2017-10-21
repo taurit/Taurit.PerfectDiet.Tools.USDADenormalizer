@@ -1,4 +1,6 @@
-﻿namespace Taurit.USDADenormalizer.Models.USDA26
+﻿// ReSharper disable InconsistentNaming
+
+namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     ///     Nutrient Data File (file name = NUT_DATA). This file (Table 8) contains the nutrient values and

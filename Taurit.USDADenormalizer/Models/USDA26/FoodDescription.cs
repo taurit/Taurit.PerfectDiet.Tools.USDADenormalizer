@@ -80,6 +80,7 @@
         /// <summary>
         ///     Factor for calculating calories from carbohydrate (see p. 13).
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         public string CHOFactor { get; set; }
     }
 }

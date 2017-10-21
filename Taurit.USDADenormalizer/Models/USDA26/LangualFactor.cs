@@ -1,4 +1,6 @@
-﻿namespace Taurit.USDADenormalizer.Models.USDA26
+﻿// ReSharper disable InconsistentNaming
+
+namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     ///     LanguaL Factor File (File name = LANGUAL). This file (Table 6) is a support file to the Food Description

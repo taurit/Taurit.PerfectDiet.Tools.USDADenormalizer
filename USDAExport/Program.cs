@@ -3,7 +3,6 @@ using System.IO;
 using CsvHelper;
 using Taurit.USDADenormalizer.ImportModules.USDA26;
 using Taurit.USDADenormalizer.Models.USDA26;
-using USDADenormalizer.Models.USDA26;
 
 namespace USDAExport
 {

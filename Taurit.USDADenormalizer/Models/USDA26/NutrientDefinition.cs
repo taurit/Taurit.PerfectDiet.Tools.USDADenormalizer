@@ -35,6 +35,7 @@
         /// <summary>
         ///     Used to sort nutrient records in the same order as various reports produced from SR.
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         public string SROrder { get; set; }
     }
 }

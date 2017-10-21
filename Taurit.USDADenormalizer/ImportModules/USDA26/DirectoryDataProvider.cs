@@ -13,18 +13,17 @@ namespace Taurit.USDADenormalizer.ImportModules.USDA26
     /// </summary>
     public class DirectoryDataProvider : IUsdaDataProvider
     {
-        private readonly string DatabasePathASCII;
-        private readonly int DatabaseVersion;
+        private readonly ITextReader _fileReader;
 
-        private readonly ITextReader FileReader;
+        // ReSharper disable once InconsistentNaming
+        private readonly string DatabasePathASCII;
 
         public DirectoryDataProvider(string databasePathAscii, int databaseVersion, ITextReader fileReaderParam)
         {
             DatabasePathASCII = databasePathAscii;
-            DatabaseVersion = databaseVersion;
-            FileReader = fileReaderParam;
+            _fileReader = fileReaderParam;
 
-            if (DatabaseVersion != 26)
+            if (databaseVersion != 26)
                 throw new ArgumentException("Only version 26 of the database is supported by this class");
 
             // Read and parse CSV data from the files
@@ -50,62 +49,62 @@ namespace Taurit.USDADenormalizer.ImportModules.USDA26
 
         public List<DataDerivation> GetDataDerivation()
         {
-            return ReadCSV<DataDerivation>(FileNameDataDerivation);
+            return ReadCsv<DataDerivation>(FileNameDataDerivation);
         }
 
         public List<FoodDescription> GetFoodDescription()
         {
-            return ReadCSV<FoodDescription>(FileNameFoodDescription);
+            return ReadCsv<FoodDescription>(FileNameFoodDescription);
         }
 
         public List<FoodGroupDescription> GetFoodGroupDescription()
         {
-            return ReadCSV<FoodGroupDescription>(FileNameFoodGroupDescription);
+            return ReadCsv<FoodGroupDescription>(FileNameFoodGroupDescription);
         }
 
         public List<Footnote> GetFootnote()
         {
-            return ReadCSV<Footnote>(FileNameFootnote);
+            return ReadCsv<Footnote>(FileNameFootnote);
         }
 
         public List<LangualFactor> GetLangualFactor()
         {
-            return ReadCSV<LangualFactor>(FileNameLangualFactor);
+            return ReadCsv<LangualFactor>(FileNameLangualFactor);
         }
 
         public List<LangualFactorsDescription> GetLangualFactorsDescription()
         {
-            return ReadCSV<LangualFactorsDescription>(FileNameLangualFactorsDescription);
+            return ReadCsv<LangualFactorsDescription>(FileNameLangualFactorsDescription);
         }
 
         public List<NutrientData> GetNutrientData()
         {
-            return ReadCSV<NutrientData>(FileNameNutrientData);
+            return ReadCsv<NutrientData>(FileNameNutrientData);
         }
 
         public List<NutrientDefinition> GetNutrientDefinition()
         {
-            return ReadCSV<NutrientDefinition>(FileNameNutrientDefinition);
+            return ReadCsv<NutrientDefinition>(FileNameNutrientDefinition);
         }
 
         public List<SourceCode> GetSourceCode()
         {
-            return ReadCSV<SourceCode>(FileNameSourceCode);
+            return ReadCsv<SourceCode>(FileNameSourceCode);
         }
 
         public List<SourcesOfData> GetSourcesOfData()
         {
-            return ReadCSV<SourcesOfData>(FileNameSourcesOfData);
+            return ReadCsv<SourcesOfData>(FileNameSourcesOfData);
         }
 
         public List<SourcesOfDataLink> GetSourcesOfDataLink()
         {
-            return ReadCSV<SourcesOfDataLink>(FileNameSourcesOfDataLink);
+            return ReadCsv<SourcesOfDataLink>(FileNameSourcesOfDataLink);
         }
 
         public List<Weight> GetWeight()
         {
-            return ReadCSV<Weight>(FileNameWeight);
+            return ReadCsv<Weight>(FileNameWeight);
         }
 
         /// <summary>
@@ -114,10 +113,10 @@ namespace Taurit.USDADenormalizer.ImportModules.USDA26
         /// <typeparam name="T">type of class containing public properties in the same order as in csv file</typeparam>
         /// <param name="fileName">path of the file to load</param>
         /// <returns></returns>
-        private List<T> ReadCSV<T>(string fileName)
+        private List<T> ReadCsv<T>(string fileName)
         {
-            var entries = new List<T>();
-            using (var reader = FileReader.OpenTextReader(fileName))
+            List<T> entries;
+            using (var reader = _fileReader.OpenTextReader(fileName))
             {
                 var csv = new CsvReader(reader, new Configuration
                 {

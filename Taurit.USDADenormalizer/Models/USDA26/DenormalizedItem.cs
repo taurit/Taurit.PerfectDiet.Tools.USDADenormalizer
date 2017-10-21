@@ -1,5 +1,7 @@
 ﻿using System.Globalization;
 
+// ReSharper disable InconsistentNaming
+
 namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>

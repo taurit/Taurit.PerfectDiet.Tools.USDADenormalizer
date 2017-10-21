@@ -9,6 +9,7 @@
         /// <summary>
         ///     5-digit Nutrient Databank number.
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         public string NDBNo { get; set; }
 
         /// <summary>

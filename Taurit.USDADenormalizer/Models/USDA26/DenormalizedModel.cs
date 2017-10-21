@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Taurit.USDADenormalizer.Models.USDA26;
 
-namespace USDADenormalizer.Models.USDA26
+namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     ///     Stores combined data from few USDA tables, containing denormalized information about nutrients in foods.
@@ -13,14 +12,9 @@ namespace USDADenormalizer.Models.USDA26
     public class DenormalizedModel
     {
         /// <summary>
-        ///     Reference to original USDA Nutrient database model, with entity and property names as in documentation
-        /// </summary>
-        private DatabaseRepresentation dbModel;
-
-        /// <summary>
         ///     Flat representation of food items information in database
         /// </summary>
-        public IList<DenormalizedItem> FoodItems = new List<DenormalizedItem>();
+        public readonly IList<DenormalizedItem> FoodItems = new List<DenormalizedItem>();
 
         /// <summary>
         ///     This function builds flat model for food item with arbitrarily-chosen set of data.
@@ -30,8 +24,6 @@ namespace USDADenormalizer.Models.USDA26
         /// <param name="dbModel"></param>
         public DenormalizedModel(DatabaseRepresentation dbModel)
         {
-            this.dbModel = dbModel;
-
             // Dictionaries for interesting nutrients (for performance)
             var nutrDictionaries = GetNutrientDictionaries(
                 dbModel);
@@ -206,12 +198,10 @@ namespace USDADenormalizer.Models.USDA26
             }
         }
 
-        public decimal? TNotFurtherDefined_Grams { get; private set; }
-
         /// <summary>
         ///     Builds a dictionary of dictionaries for all types of nutrients found in NutrientDefinition table.
-        ///     This is done purely for performance reasons, as looking up in dicrtionaries for each product is faster than
-        ///     repeating linq queries.
+        ///     This is done purely for performance reasons, as looking up in dictionaries for each product is faster than
+        ///     repeating LINQ queries.
         /// </summary>
         /// <param name="dbModel"></param>
         /// <returns></returns>
@@ -242,6 +232,7 @@ namespace USDADenormalizer.Models.USDA26
             var nutrientNumber = dbModel.nutrientDefinition.Where(nd => nd.NutrNo == nutrNo).FirstOrDefault().NutrNo;
 
             // Build a dictionary
+            // ReSharper disable once InconsistentNaming
             var nutrientNDBNoToValue = dbModel.nutrientData
                 .Where(nut => nut.NutrNo == nutrientNumber)
                 .ToDictionary(x => x.NDBNo, x => x.NutrVal);

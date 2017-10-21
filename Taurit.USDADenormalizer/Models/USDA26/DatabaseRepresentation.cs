@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using Taurit.USDADenormalizer.ImportModules.USDA26;
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable MemberCanBePrivate.Global
+
 namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
@@ -10,19 +13,6 @@ namespace Taurit.USDADenormalizer.Models.USDA26
     /// </summary>
     public class DatabaseRepresentation
     {
-        internal List<DataDerivation> dataDerivation;
-        internal List<FoodDescription> foodDescription;
-        internal List<FoodGroupDescription> foodGroupDescription;
-        internal List<Footnote> footnote;
-        internal List<LangualFactor> langualFactor;
-        internal List<LangualFactorsDescription> langualFactorsDescription;
-        internal List<NutrientData> nutrientData;
-        internal List<NutrientDefinition> nutrientDefinition;
-        internal List<SourceCode> sourceCode;
-        internal List<SourcesOfData> sourcesOfData;
-        internal List<SourcesOfDataLink> sourcesOfDataLink;
-        internal List<Weight> weight;
-
         public DatabaseRepresentation(IUsdaDataProvider dataProvider)
         {
             dataDerivation = dataProvider.GetDataDerivation();
@@ -38,5 +28,19 @@ namespace Taurit.USDADenormalizer.Models.USDA26
             sourcesOfDataLink = dataProvider.GetSourcesOfDataLink();
             weight = dataProvider.GetWeight();
         }
+#pragma warning disable IDE1006 // Naming Styles. Intentional - names should match those in external documentation
+        public List<DataDerivation> dataDerivation { get; }
+        public List<FoodDescription> foodDescription { get; }
+        public List<FoodGroupDescription> foodGroupDescription { get; }
+        public List<Footnote> footnote { get; }
+        public List<LangualFactor> langualFactor { get; }
+        public List<LangualFactorsDescription> langualFactorsDescription { get; }
+        public List<NutrientData> nutrientData { get; }
+        public List<NutrientDefinition> nutrientDefinition { get; }
+        public List<SourceCode> sourceCode { get; }
+        public List<SourcesOfData> sourcesOfData { get; }
+        public List<SourcesOfDataLink> sourcesOfDataLink { get; }
+        public List<Weight> weight { get; }
+#pragma warning restore IDE1006 // Naming Styles
     }
 }

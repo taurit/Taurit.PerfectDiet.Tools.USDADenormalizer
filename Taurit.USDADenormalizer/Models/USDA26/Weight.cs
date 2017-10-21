@@ -1,4 +1,6 @@
-﻿namespace Taurit.USDADenormalizer.Models.USDA26
+﻿// ReSharper disable InconsistentNaming
+
+namespace Taurit.USDADenormalizer.Models.USDA26
 {
     /// <summary>
     ///     Weight File (file name = WEIGHT). This file (Table 12) contains the weight in grams of a number of
