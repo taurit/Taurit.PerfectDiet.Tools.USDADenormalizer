@@ -101,7 +101,7 @@ namespace Taurit.USDADenormalizer.Models.USDA26
                 flatItem.PantothenicAcid_Mg = TryGetDecimal(nutrDictionaries[410], foodId);
                 flatItem.VitaminB6A_Mg = TryGetDecimal(nutrDictionaries[415], foodId);
                 flatItem.FoliateTotal_Ug = TryGetDecimal(nutrDictionaries[417], foodId);
-                flatItem.VitaminB12_Mg = TryGetDecimal(nutrDictionaries[418], foodId);
+                flatItem.VitaminB12_Ug = TryGetDecimal(nutrDictionaries[418], foodId);
                 flatItem.CholineTotalMg = TryGetDecimal(nutrDictionaries[421], foodId);
                 flatItem.Menaquinone4_Ug = TryGetDecimal(nutrDictionaries[428], foodId);
                 flatItem.Dihydrophylloquinone_Ug = TryGetDecimal(nutrDictionaries[429], foodId);
@@ -130,7 +130,7 @@ namespace Taurit.USDADenormalizer.Models.USDA26
                 flatItem.Serine_Grams = TryGetDecimal(nutrDictionaries[518], foodId);
                 flatItem.Hydroxyproline_Grams = TryGetDecimal(nutrDictionaries[521], foodId);
                 flatItem.VitaminEAdded_Mg = TryGetDecimal(nutrDictionaries[573], foodId);
-                flatItem.VitaminB12Added_Mg = TryGetDecimal(nutrDictionaries[578], foodId);
+                flatItem.VitaminB12Added_Ug = TryGetDecimal(nutrDictionaries[578], foodId);
                 flatItem.Cholesterol_Mg = TryGetDecimal(nutrDictionaries[601], foodId);
                 flatItem.FattyAcidsTotalTrans_Grams = TryGetDecimal(nutrDictionaries[605], foodId);
                 flatItem.FattyAcidsTotalSaturated_Grams = TryGetDecimal(nutrDictionaries[606], foodId);

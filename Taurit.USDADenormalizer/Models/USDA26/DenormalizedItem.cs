@@ -169,7 +169,7 @@ namespace Taurit.USDADenormalizer.Models.USDA26
         public decimal? PantothenicAcid_Mg { get; internal set; }
         public decimal? VitaminB6A_Mg { get; internal set; }
         public decimal? FoliateTotal_Ug { get; internal set; }
-        public decimal? VitaminB12_Mg { get; internal set; }
+        public decimal? VitaminB12_Ug { get; internal set; }
         public decimal? CholineTotalMg { get; internal set; }
         public decimal? Menaquinone4_Ug { get; internal set; }
         public decimal? Dihydrophylloquinone_Ug { get; internal set; }
@@ -198,7 +198,7 @@ namespace Taurit.USDADenormalizer.Models.USDA26
         public decimal? Serine_Grams { get; internal set; }
         public decimal? Hydroxyproline_Grams { get; internal set; }
         public decimal? VitaminEAdded_Mg { get; internal set; }
-        public decimal? VitaminB12Added_Mg { get; internal set; }
+        public decimal? VitaminB12Added_Ug { get; internal set; }
         public decimal? Cholesterol_Mg { get; internal set; }
         public decimal? FattyAcidsTotalTrans_Grams { get; internal set; }
         public decimal? FattyAcidsTotalSaturated_Grams { get; internal set; }
